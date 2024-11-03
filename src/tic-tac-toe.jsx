@@ -83,6 +83,7 @@
  * @see <a href="https://krotalias.github.io/cwdc/14-react/tic-tac-toe/tic-tac-toe.html">link browser</a>
  * @see <a href="https://krotalias.github.io/tic-tac-toe/">link git</a>
  * @see <a href="http://localhost:5173/tic-tac-toe/">link local server</a>
+ * @see <a href="https://raw.githubusercontent.com/krotalias/tic-tac-toe/main/README.html">README</a>
  * @see {@link https://reactjs.org/tutorial/tutorial.html Tutorial: Tic-Tac-Toe}
  * @see {@link https://flarnie.github.io/react/tutorial/tutorial.html Tutorial: Intro To React}
  * @see {@link external:react-dom react-dom}
@@ -164,11 +165,11 @@ import github from "./github.png";
  * @see {@link https://javascript.info/destructuring-assignment Destructuring assignment}
  */
 function Square({ value, onClick } = props) {
-    return (
-        <button className="square" onClick={onClick}>
-            {value}
-        </button>
-    );
+  return (
+    <button className="square" onClick={onClick}>
+      {value}
+    </button>
+  );
 }
 
 /**
@@ -194,47 +195,47 @@ function Square({ value, onClick } = props) {
  * buttons per row, each of which with value 'X', 'O' or null.
  */
 function Board(props) {
-    /**
-     * We'll pass down a prop, from the Board to the Square,
-     * with a value and function, and we’ll have Square call
-     * that function when a square is clicked.
-     * @global
-     * @param {Number} i square index ∈ [0..8].
-     * @returns {React.JSX.Element} the i-th square with its value and click callback.
-     */
-    function renderSquare(i) {
-        return (
-            <Square
-                key={i}
-                value={props.squares[i]}
-                onClick={() => props.onClick(i)}
-            />
-        );
-    }
-
-    /**
-     * Renders a row of the board.
-     * @param {Array<Number>} arr three row indices.
-     * @global
-     * @returns {React.JSX.Element} &lt;div&gt; tag with three {@link renderSquare squares}.
-     */
-    function Row({ arr } = props) {
-        return (
-            <div className="board-row">
-                {arr.map((item) => {
-                    return renderSquare(item);
-                })}
-            </div>
-        );
-    }
-
+  /**
+   * We'll pass down a prop, from the Board to the Square,
+   * with a value and function, and we’ll have Square call
+   * that function when a square is clicked.
+   * @global
+   * @param {Number} i square index ∈ [0..8].
+   * @returns {React.JSX.Element} the i-th square with its value and click callback.
+   */
+  function renderSquare(i) {
     return (
-        <div>
-            <Row arr={[0, 1, 2]} />
-            <Row arr={[3, 4, 5]} />
-            <Row arr={[6, 7, 8]} />
-        </div>
+      <Square
+        key={i}
+        value={props.squares[i]}
+        onClick={() => props.onClick(i)}
+      />
     );
+  }
+
+  /**
+   * Renders a row of the board.
+   * @param {Array<Number>} arr three row indices.
+   * @global
+   * @returns {React.JSX.Element} &lt;div&gt; tag with three {@link renderSquare squares}.
+   */
+  function Row({ arr } = props) {
+    return (
+      <div className="board-row">
+        {arr.map((item) => {
+          return renderSquare(item);
+        })}
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <Row arr={[0, 1, 2]} />
+      <Row arr={[3, 4, 5]} />
+      <Row arr={[6, 7, 8]} />
+    </div>
+  );
 }
 
 /**
@@ -266,192 +267,189 @@ function Board(props) {
  * @see {@link https://www.w3schools.com/react/react_props.asp React Props}
  */
 function Game() {
-    /**
-     * The state of the game.
-     * <ul>
-     *    <li>Set up the initial state of the game: board configuration,
-     *    number of moves and if "X" is the next to play.</li>
-     *    <li>Set the Board’s initial state to contain an array of 9 nulls
-     *    corresponding to the 9 squares.</li>
-     *  </ul>
-     * <p>Conceptually, components are like JavaScript functions:</p>
-     * <ul>
-     *    <li>They accept arbitrary inputs (called “props”) and </li>
-     *    <li>return React elements describing what should appear on the screen.</li>
-     * </ul>
-     * @type {Object}
-     * @name state
-     * @property {Array<Object<{squares: Array<String>}>>} state.history history array.
-     * @property {Number} state.stepNumber step number.
-     * @property {Boolean} state.xIsNext player turn.
-     * @global
-     */
-    const [state, setState] = useState({
-        history: [
-            {
-                squares: Array(9).fill(null),
-            },
-        ],
-        stepNumber: 0,
-        xIsNext: true,
-    });
+  /**
+   * The state of the game.
+   * <ul>
+   *    <li>Set up the initial state of the game: board configuration,
+   *    number of moves and if "X" is the next to play.</li>
+   *    <li>Set the Board’s initial state to contain an array of 9 nulls
+   *    corresponding to the 9 squares.</li>
+   *  </ul>
+   * <p>Conceptually, components are like JavaScript functions:</p>
+   * <ul>
+   *    <li>They accept arbitrary inputs (called “props”) and </li>
+   *    <li>return React elements describing what should appear on the screen.</li>
+   * </ul>
+   * @type {Object}
+   * @name state
+   * @property {Array<Object<{squares: Array<String>}>>} state.history history array.
+   * @property {Number} state.stepNumber step number.
+   * @property {Boolean} state.xIsNext player turn.
+   * @global
+   */
+  const [state, setState] = useState({
+    history: [
+      {
+        squares: Array(9).fill(null),
+      },
+    ],
+    stepNumber: 0,
+    xIsNext: true,
+  });
 
-    /**
-     * <p>The {@link Square} calls handleClick(i) when clicked.</p>
-     *
-     * <p>Each time a player moves, {@link Game#state xIsNext} (a boolean) will be flipped to determine
-     * which player goes next, and the game’s state will be saved.</p>
-     *
-     * <p>If you “go back in time” and then make a new move from that point,
-     * you only want to keep the history up to that point.
-     * Instead of adding nextSquares after all items in history,
-     * you’ll add it after all items in history.slice(0, stepNumber + 1),
-     * so that you’re only keeping that portion of the old history.</p>
-     *
-     * <p>Note how in handleClick, we call
-     * {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice slice()}
-     * to create a copy of the squares array, instead of modifying the existing array.</p>
-     *
-     * <p>To explain why, we need to discuss
-     * {@link https://blog.devgenius.io/mutable-and-immutable-in-javascript-78a3cbc6187c immutability},
-     * and why immutability is important to learn.</p>
-     *
-     * <p>There are generally two approaches to changing data:</p>
-     * <ol>
-     *  <li>The first approach is to mutate the data, by directly changing the data’s values.</li>
-     *  <li>The second approach is to replace the data with a new copy, which has the desired changes.</li>
-     * </ol>
-     *
-     * Detecting changes in immutable objects is considerably easier:
-     * <ul>
-     *  <li>if the immutable object that is being referenced is different than the previous one,
-     *  then the object has changed.</li>
-     * </ul>
-     *
-     * @global
-     * @param {Number} i an index ∈ [0..8] corresponding to the button clicked.
-     * @see {@link https://reactjs.org/docs/react-component.html#setstate setState()}
-     * @see {@link https://www.codecademy.com/resources/docs/javascript/arrays/slice .slice()}
-     */
-    function handleClick(i) {
-        // a copy of the current history up to stepNumber.
-        const history = state.history.slice(0, state.stepNumber + 1);
-        // the last configuration.
-        const current = history[history.length - 1];
-        // a copy of the last array of "X"s and "O"s from the copied history.
-        const nextSquares = current.squares.slice();
-        // check for a winner or if the i-th square has been already marked.
-        if (calculateWinner(nextSquares) || nextSquares[i]) {
-            return;
-        }
-        nextSquares[i] = state.xIsNext ? "X" : "O";
-
-        /**
-         * <p>Add the new configuration (another square array) to {@link Game#state history}.</p>
-         * <pre>
-         * History: Array (5) = $2
-         *  0 {squares: Array}
-         *      squares: [null, null, null, null, null, null, null, null, null] (9)
-         *  1 {squares: Array}
-         *      squares: ["X", null, null, null, null, null, null, null, null] (9)
-         *  2 {squares: Array}
-         *      squares: ["X", null, null, null, null, null, null, null, "O"] (9)
-         *  3 {squares: Array}
-         *      squares: ["X", null, null, null, "X", null, null, null, "O"] (9)
-         *  4 {squares: Array}
-         *      squares: ["X", null, "O", null, "X", null, null, null, "O"] (9)
-         * </pre>
-         * When you set the {@link https://react.dev/reference/react/useState state} in a component,
-         * React automatically updates the child components inside of it too.
-         * @name setState
-         * @global
-         * @see {@link https://www.geeksforgeeks.org/reactjs-setstate/ ReactJS setState()}
-         * @see {@link https://dev.to/johnstonlogan/react-hooks-barney-style-1hk7 useState() vs setState() - Strings, Objects, and Arrays}
-         */
-        setState({
-            // creates a new array that contains all the items in history,
-            // followed by nextSquares (could have been used concat instead of spread).
-            history: [...history, { squares: nextSquares }],
-            stepNumber: history.length,
-            xIsNext: !state.xIsNext,
-        });
+  /**
+   * <p>The {@link Square} calls handleClick(i) when clicked.</p>
+   *
+   * <p>Each time a player moves, {@link Game#state xIsNext} (a boolean) will be flipped to determine
+   * which player goes next, and the game’s state will be saved.</p>
+   *
+   * <p>If you “go back in time” and then make a new move from that point,
+   * you only want to keep the history up to that point.
+   * Instead of adding nextSquares after all items in history,
+   * you’ll add it after all items in history.slice(0, stepNumber + 1),
+   * so that you’re only keeping that portion of the old history.</p>
+   *
+   * <p>Note how in handleClick, we call
+   * {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice slice()}
+   * to create a copy of the squares array, instead of modifying the existing array.</p>
+   *
+   * <p>To explain why, we need to discuss
+   * {@link https://blog.devgenius.io/mutable-and-immutable-in-javascript-78a3cbc6187c immutability},
+   * and why immutability is important to learn.</p>
+   *
+   * <p>There are generally two approaches to changing data:</p>
+   * <ol>
+   *  <li>The first approach is to mutate the data, by directly changing the data’s values.</li>
+   *  <li>The second approach is to replace the data with a new copy, which has the desired changes.</li>
+   * </ol>
+   *
+   * Detecting changes in immutable objects is considerably easier:
+   * <ul>
+   *  <li>if the immutable object that is being referenced is different than the previous one,
+   *  then the object has changed.</li>
+   * </ul>
+   *
+   * @global
+   * @param {Number} i an index ∈ [0..8] corresponding to the button clicked.
+   * @see {@link https://reactjs.org/docs/react-component.html#setstate setState()}
+   * @see {@link https://www.codecademy.com/resources/docs/javascript/arrays/slice .slice()}
+   */
+  function handleClick(i) {
+    // a copy of the current history up to stepNumber.
+    const history = state.history.slice(0, state.stepNumber + 1);
+    // the last configuration.
+    const current = history[history.length - 1];
+    // a copy of the last array of "X"s and "O"s from the copied history.
+    const nextSquares = current.squares.slice();
+    // check for a winner or if the i-th square has been already marked.
+    if (calculateWinner(nextSquares) || nextSquares[i]) {
+      return;
     }
+    nextSquares[i] = state.xIsNext ? "X" : "O";
 
     /**
-     * <p>Go to the step-th move in the game.</p>
-     *
-     * <p>Enqueues changes to the component state and tells React that this component and
-     * its children need to be re-rendered with the updated state.</p>
-     *
-     * This is the primary method you use to update the user interface in response
-     * to event handlers and server responses.
-     * @global
-     * @param {Number} step position into the history array.
-     * @see {@link https://react.dev/reference/react/useState useState}
-     */
-    function jumpTo(step) {
-        setState({
-            history: history,
-            stepNumber: step,
-            xIsNext: step % 2 === 0,
-        });
-    }
-
-    const history = state.history;
-    const current = history[state.stepNumber];
-    const winner = calculateWinner(current.squares);
-
-    /**
-     * <p>Creates buttons for each move in history.</p>
+     * <p>Add the new configuration (another square array) to {@link Game#state history}.</p>
      * <pre>
-     *    0: {$$typeof: Symbol(react.element), type: "li", key: "0", ref: null, props: Object, …}
-     *    1: {$$typeof: Symbol(react.element), type: "li", key: "1", ref: null, props: Object, …}
-     *    ...
+     * History: Array (5) = $2
+     *  0 {squares: Array}
+     *      squares: [null, null, null, null, null, null, null, null, null] (9)
+     *  1 {squares: Array}
+     *      squares: ["X", null, null, null, null, null, null, null, null] (9)
+     *  2 {squares: Array}
+     *      squares: ["X", null, null, null, null, null, null, null, "O"] (9)
+     *  3 {squares: Array}
+     *      squares: ["X", null, null, null, "X", null, null, null, "O"] (9)
+     *  4 {squares: Array}
+     *      squares: ["X", null, "O", null, "X", null, null, null, "O"] (9)
      * </pre>
-     * @type {Array<React.JSX.Element>}
+     * When you set the {@link https://react.dev/reference/react/useState state} in a component,
+     * React automatically updates the child components inside of it too.
+     * @name setState
      * @global
+     * @see {@link https://www.geeksforgeeks.org/reactjs-setstate/ ReactJS setState()}
+     * @see {@link https://dev.to/johnstonlogan/react-hooks-barney-style-1hk7 useState() vs setState() - Strings, Objects, and Arrays}
      */
-    const moves = history.map((_, move) => {
-        //                      go to   #move     or   when move is 0
-        const desc = move ? `Go to move #${move}` : "Go to game start";
-        return (
-            <li key={move}>
-                <button onClick={() => jumpTo(move)}>{desc}</button>
-            </li>
-        );
+    setState({
+      // creates a new array that contains all the items in history,
+      // followed by nextSquares (could have been used concat instead of spread).
+      history: [...history, { squares: nextSquares }],
+      stepNumber: history.length,
+      xIsNext: !state.xIsNext,
     });
+  }
 
-    let status;
-    if (winner) {
-        status = `Winner: ${winner}`;
-    } else if (state.stepNumber > 8) {
-        status = "Game Over: Draw";
-    } else {
-        status = `Next player: ${state.xIsNext ? "X" : "O"}`;
-    }
+  /**
+   * <p>Go to the step-th move in the game.</p>
+   *
+   * <p>Enqueues changes to the component state and tells React that this component and
+   * its children need to be re-rendered with the updated state.</p>
+   *
+   * This is the primary method you use to update the user interface in response
+   * to event handlers and server responses.
+   * @global
+   * @param {Number} step position into the history array.
+   * @see {@link https://react.dev/reference/react/useState useState}
+   */
+  function jumpTo(step) {
+    setState({
+      history: history,
+      stepNumber: step,
+      xIsNext: step % 2 === 0,
+    });
+  }
 
+  const history = state.history;
+  const current = history[state.stepNumber];
+  const winner = calculateWinner(current.squares);
+
+  /**
+   * <p>Creates buttons for each move in history.</p>
+   * <pre>
+   *    0: {$$typeof: Symbol(react.element), type: "li", key: "0", ref: null, props: Object, …}
+   *    1: {$$typeof: Symbol(react.element), type: "li", key: "1", ref: null, props: Object, …}
+   *    ...
+   * </pre>
+   * @type {Array<React.JSX.Element>}
+   * @global
+   */
+  const moves = history.map((_, move) => {
+    //                      go to   #move     or   when move is 0
+    const desc = move ? `Go to move #${move}` : "Go to game start";
     return (
-        <div className="game">
-            <div className="game-logo">
-                <a href="https://github.com/krotalias/tic-tac-toe">
-                    <img src={github} style={{ height: "32px" }} alt="github" />
-                </a>
-            </div>
-            <div className="game-board">
-                <div>
-                    <p style={{ textAlign: "center" }}>{status}</p>
-                </div>
-                <Board
-                    squares={current.squares}
-                    onClick={(i) => handleClick(i)}
-                />
-            </div>
-            <div className="game-info">
-                <p style={{ textAlign: "center" }}>History</p>
-                <ol>{moves}</ol>
-            </div>
-        </div>
+      <li key={move}>
+        <button onClick={() => jumpTo(move)}>{desc}</button>
+      </li>
     );
+  });
+
+  let status;
+  if (winner) {
+    status = `Winner: ${winner}`;
+  } else if (state.stepNumber > 8) {
+    status = "Game Over: Draw";
+  } else {
+    status = `Next player: ${state.xIsNext ? "X" : "O"}`;
+  }
+
+  return (
+    <div className="game">
+      <div className="game-logo">
+        <a href="https://github.com/krotalias/tic-tac-toe">
+          <img src={github} style={{ height: "32px" }} alt="github" />
+        </a>
+      </div>
+      <div className="game-board">
+        <div>
+          <p style={{ textAlign: "center" }}>{status}</p>
+        </div>
+        <Board squares={current.squares} onClick={(i) => handleClick(i)} />
+      </div>
+      <div className="game-info">
+        <p style={{ textAlign: "center" }}>History</p>
+        <ol>{moves}</ol>
+      </div>
+    </div>
+  );
 }
 
 // ========================================
@@ -474,25 +472,21 @@ root.render(<Game />);
  * @returns {String} <p>the winner: "X", "O", or null if there is not a winner.</p>
  */
 function calculateWinner(squares) {
-    // The eight winner configurations: rows, columns and diagonals.
-    const lines = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6],
-    ];
-    for (const [a, b, c] of lines) {
-        if (
-            squares[a] &&
-            squares[a] === squares[b] &&
-            squares[a] === squares[c]
-        ) {
-            return squares[a];
-        }
+  // The eight winner configurations: rows, columns and diagonals.
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+  for (const [a, b, c] of lines) {
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
     }
-    return null;
+  }
+  return null;
 }
