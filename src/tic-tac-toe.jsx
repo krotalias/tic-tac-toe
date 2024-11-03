@@ -58,7 +58,7 @@
  *  {@link https://nodejs.org/en/blog/release/v20.18.0 20} or
  *  {@link https://nodejs.org/en/blog/release/v22.11.0 22}:</li>
  *  <ul>
- *    <li>cd tic-tac-toe-functional</li>
+ *    <li>cd tic-tac-toe</li>
  *    <li>{@link https://www.npmjs.com npm} or {@link https://yarnpkg.com yarn} install</li>
  *    <li>{@link https://www.npmjs.com/package/react npm} or {@link https://yarnpkg.com/package/react yarn} run dev</li>
  *  </ul>
@@ -66,7 +66,7 @@
  *  <li>To use vercel {@link https://vercel.com/docs/cli cli} to run
  *  vercel {@link https://vercel.com/docs/cli/dev dev} before deploying to Vercel:</li>
  *  <ul>
- *    <li>cd tic-tac-toe-functional</li>
+ *    <li>cd tic-tac-toe</li>
  *    <li>{@link https://pnpm.io pnpm} i -g vercel or
  *        {@link https://pnpm.io pnpm} i -g vercel@latest (to update to the latest version)</li>
  *    <li>{@link https://www.npmjs.com npm} or {@link https://yarnpkg.com yarn} install</li>
@@ -82,7 +82,7 @@
  * @see <a href="https://raw.githubusercontent.com/krotalias/tic-tac-toe/main/package.json">package.json</a>
  * @see <a href="https://krotalias.github.io/cwdc/14-react/tic-tac-toe/tic-tac-toe.html">link browser</a>
  * @see <a href="https://krotalias.github.io/tic-tac-toe/">link git</a>
- * @see <a href="http://localhost:5173/tic-tac-toe-functional/">link local server</a>
+ * @see <a href="http://localhost:5173/tic-tac-toe/">link local server</a>
  * @see {@link https://reactjs.org/tutorial/tutorial.html Tutorial: Tic-Tac-Toe}
  * @see {@link https://flarnie.github.io/react/tutorial/tutorial.html Tutorial: Intro To React}
  * @see {@link external:react-dom react-dom}
