@@ -96,7 +96,7 @@ import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import props from "prop-types";
 import "./tic-tac-toe.css";
-import vercel from "./vercel.png";
+import github from "./github.png";
 
 /**
  * <p>React is the library for web and native user interfaces.</p>
@@ -426,8 +426,8 @@ function Game() {
     return (
         <div className="game">
             <div className="game-logo">
-                <a href="https://krotalias.github.io/tic-tac-toe">
-                    <img src={vercel} style={{ height: "32px" }} alt="vercel" />
+                <a href="https://github.com/krotalias/tic-tac-toe">
+                    <img src={github} style={{ height: "32px" }} alt="github" />
                 </a>
             </div>
             <div className="game-board">
