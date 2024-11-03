@@ -172,9 +172,9 @@ function Square({ value, onClick } = props) {
 }
 
 /**
- * <p>The board.</p>
+ * <p>The Board.</p>
  *
- * @summary {@link renderSquare Renders} the 9 squares of the board.
+ * <p>Renders the 9 squares of the board.</p>
  *
  * <p>Basically, it renders the layout of the game,
  * by creating a 3 × 3 grid with a button for each square.</p>
@@ -195,7 +195,7 @@ function Square({ value, onClick } = props) {
  */
 function Board(props) {
     /**
-     * We’ll pass down a prop, from the Board to the Square,
+     * We'll pass down a prop, from the Board to the Square,
      * with a value and function, and we’ll have Square call
      * that function when a square is clicked.
      *
@@ -230,22 +230,22 @@ function Board(props) {
 }
 
 /**
- * <p>Game.</p>
+ * <p>The Game.</p>
  *
- * To “remember” things, components use {@link https://react.dev/learn/managing-state state}.
+ * <p>Renders the grid layout and an ordered list of buttons for each move in the game history.</p>
+ *
+ * To “remember” things, components create a {@link https://react.dev/learn/managing-state state}.
  * The <strong>state</strong> is a built-in React object that is
  * used to contain data or information about the component,
  * which should be considered as private
  * to a React component that it’s defined in.
  *
  * <p>To add a Time Travel, to “go back in time” to the previous moves in the game,
- * we need a History of Moves.</p>
+ * we need a History of Moves in the {@link state}.</p>
  *
  * <p>We’ll store the past squares arrays in another array called {@link Game#state history}.
  * The history array represents all board states,
  * from the first to the last move.</p>
- *
- * Renders the grid layout and an ordered list of buttons for each move in this game history.
  *
  * @returns {React.JSX.Element} a tag &lt;game&gt;, with the 3 × 3 {@link Board} grid layout and
  * an ordered list of buttons for the time travel.

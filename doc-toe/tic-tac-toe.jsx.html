@@ -1,33 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>JSDoc: Source: tic-tac-toe.jsx</title>
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: tic-tac-toe.jsx</title>
 
-        <script src="scripts/prettify/prettify.js"></script>
-        <script src="scripts/prettify/lang-css.js"></script>
-        <!--[if lt IE 9]>
-            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-        <link
-            type="text/css"
-            rel="stylesheet"
-            href="styles/prettify-tomorrow.css"
-        />
-        <link
-            type="text/css"
-            rel="stylesheet"
-            href="styles/jsdoc-default.css"
-        />
-    </head>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
 
-    <body>
-        <div id="main">
-            <h1 class="page-title">Source: tic-tac-toe.jsx</h1>
+<body>
 
-            <section>
-                <article>
-                    <pre class="prettyprint source linenums"><code>/**
+<div id="main">
+
+    <h1 class="page-title">Source: tic-tac-toe.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * @file
  *
  * Summary.
@@ -201,9 +200,9 @@ function Square({ value, onClick } = props) {
 }
 
 /**
- * &lt;p>The board.&lt;/p>
+ * &lt;p>The Board.&lt;/p>
  *
- * @summary {@link renderSquare Renders} the 9 squares of the board.
+ * &lt;p>Renders the 9 squares of the board.&lt;/p>
  *
  * &lt;p>Basically, it renders the layout of the game,
  * by creating a 3 × 3 grid with a button for each square.&lt;/p>
@@ -224,7 +223,7 @@ function Square({ value, onClick } = props) {
  */
 function Board(props) {
     /**
-     * We’ll pass down a prop, from the Board to the Square,
+     * We'll pass down a prop, from the Board to the Square,
      * with a value and function, and we’ll have Square call
      * that function when a square is clicked.
      *
@@ -259,22 +258,22 @@ function Board(props) {
 }
 
 /**
- * &lt;p>Game.&lt;/p>
+ * &lt;p>The Game.&lt;/p>
  *
- * To “remember” things, components use {@link https://react.dev/learn/managing-state state}.
+ * &lt;p>Renders the grid layout and an ordered list of buttons for each move in the game history.&lt;/p>
+ *
+ * To “remember” things, components create a {@link https://react.dev/learn/managing-state state}.
  * The &lt;strong>state&lt;/strong> is a built-in React object that is
  * used to contain data or information about the component,
  * which should be considered as private
  * to a React component that it’s defined in.
  *
  * &lt;p>To add a Time Travel, to “go back in time” to the previous moves in the game,
- * we need a History of Moves.&lt;/p>
+ * we need a History of Moves in the {@link state}.&lt;/p>
  *
  * &lt;p>We’ll store the past squares arrays in another array called {@link Game#state history}.
  * The history array represents all board states,
  * from the first to the last move.&lt;/p>
- *
- * Renders the grid layout and an ordered list of buttons for each move in this game history.
  *
  * @returns {React.JSX.Element} a tag &amp;lt;game&amp;gt;, with the 3 × 3 {@link Board} grid layout and
  * an ordered list of buttons for the time travel.
@@ -519,48 +518,25 @@ function calculateWinner(squares) {
     return null;
 }
 </code></pre>
-                </article>
-            </section>
-        </div>
+        </article>
+    </section>
 
-        <nav>
-            <h2><a href="index.html">Home</a></h2>
-            <h3>Externals</h3>
-            <ul>
-                <li><a href="external-react.html">react</a></li>
-                <li><a href="external-react-dom.html">react-dom</a></li>
-            </ul>
-            <h3>Namespaces</h3>
-            <ul>
-                <li><a href="React.html">React</a></li>
-            </ul>
-            <h3>Global</h3>
-            <ul>
-                <li><a href="global.html#Board">Board</a></li>
-                <li><a href="global.html#Game">Game</a></li>
-                <li><a href="global.html#Square">Square</a></li>
-                <li>
-                    <a href="global.html#calculateWinner">calculateWinner</a>
-                </li>
-                <li><a href="global.html#handleClick">handleClick</a></li>
-                <li><a href="global.html#jumpTo">jumpTo</a></li>
-                <li><a href="global.html#moves">moves</a></li>
-                <li><a href="global.html#setState">setState</a></li>
-                <li><a href="global.html#state">state</a></li>
-            </ul>
-        </nav>
 
-        <br class="clear" />
 
-        <footer>
-            Documentation generated by
-            <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sun Nov
-            03 2024 08:29:18 GMT-0300 (Brasilia Standard Time)
-        </footer>
 
-        <script>
-            prettyPrint();
-        </script>
-        <script src="scripts/linenumber.js"></script>
-    </body>
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Externals</h3><ul><li><a href="external-react.html">react</a></li><li><a href="external-react-dom.html">react-dom</a></li></ul><h3>Namespaces</h3><ul><li><a href="React.html">React</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Board">Board</a></li><li><a href="global.html#Game">Game</a></li><li><a href="global.html#Square">Square</a></li><li><a href="global.html#calculateWinner">calculateWinner</a></li><li><a href="global.html#handleClick">handleClick</a></li><li><a href="global.html#jumpTo">jumpTo</a></li><li><a href="global.html#moves">moves</a></li><li><a href="global.html#setState">setState</a></li><li><a href="global.html#state">state</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sun Nov 03 2024 10:13:38 GMT-0300 (Brasilia Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
 </html>
