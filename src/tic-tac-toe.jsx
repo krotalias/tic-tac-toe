@@ -402,9 +402,8 @@ function Game() {
      * </pre>
      * @type {Array<React.JSX.Element>}
      * @global
-     * @returns {React.JSXElement} a button with its click action.
      */
-    const moves = history.map((step, move) => {
+    const moves = history.map((_, move) => {
         //                      go to   #move     or   when move is 0
         const desc = move ? `Go to move #${move}` : "Go to game start";
         return (
