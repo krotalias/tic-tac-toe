@@ -83,7 +83,7 @@
  * @see <a href="https://krotalias.github.io/cwdc/14-react/tic-tac-toe/tic-tac-toe.html">link browser</a>
  * @see <a href="https://krotalias.github.io/tic-tac-toe/">link git</a>
  * @see <a href="http://localhost:5173/tic-tac-toe/">link local server</a>
- * @see <a href="https://raw.githubusercontent.com/krotalias/tic-tac-toe/main/README.html">README</a>
+ * @see <a href="https://krotalias.github.io/README.html">README</a>
  * @see {@link https://reactjs.org/tutorial/tutorial.html Tutorial: Tic-Tac-Toe}
  * @see {@link https://flarnie.github.io/react/tutorial/tutorial.html Tutorial: Intro To React}
  * @see {@link external:react-dom react-dom}
