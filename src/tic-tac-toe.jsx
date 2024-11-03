@@ -198,33 +198,41 @@ function Board(props) {
      * We'll pass down a prop, from the Board to the Square,
      * with a value and function, and we’ll have Square call
      * that function when a square is clicked.
-     *
+     * @global
      * @param {Number} i square index ∈ [0..8].
-     * @returns {Square} the i-th square with its value and click callback.
+     * @returns {React.JSX.Element} the i-th square with its value and click callback.
      */
     function renderSquare(i) {
         return (
-            <Square value={props.squares[i]} onClick={() => props.onClick(i)} />
+            <Square
+                key={i}
+                value={props.squares[i]}
+                onClick={() => props.onClick(i)}
+            />
+        );
+    }
+
+    /**
+     * Renders a row of the board.
+     * @param {Array<Number>} arr three row indices.
+     * @global
+     * @returns {React.JSX.Element} &lt;div&gt; tag with three {@link renderSquare squares}.
+     */
+    function Row({ arr } = props) {
+        return (
+            <div className="board-row">
+                {arr.map((item) => {
+                    return renderSquare(item);
+                })}
+            </div>
         );
     }
 
     return (
         <div>
-            <div className="board-row">
-                {renderSquare(0)}
-                {renderSquare(1)}
-                {renderSquare(2)}
-            </div>
-            <div className="board-row">
-                {renderSquare(3)}
-                {renderSquare(4)}
-                {renderSquare(5)}
-            </div>
-            <div className="board-row">
-                {renderSquare(6)}
-                {renderSquare(7)}
-                {renderSquare(8)}
-            </div>
+            <Row arr={[0, 1, 2]} />
+            <Row arr={[3, 4, 5]} />
+            <Row arr={[6, 7, 8]} />
         </div>
     );
 }
