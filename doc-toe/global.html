@@ -98,6 +98,78 @@
 
         
             
+<h4 class="name" id="cTable"><span class="type-signature">(constant) </span>cTable<span class="type-signature"> :Object.&lt;String, String></span></h4>
+
+
+
+
+<div class="description">
+    Color table for winner color and background.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object.&lt;String, String></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line150">line 150</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
 <h4 class="name" id="moves"><span class="type-signature">(constant) </span>moves<span class="type-signature"> :Array.&lt;React.JSX.Element></span></h4>
 
 
@@ -157,7 +229,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line415">line 415</a>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line437">line 437</a>
     </li></ul></dd>
     
 
@@ -181,7 +253,7 @@
 
 
 <div class="description">
-    <p>Add the new configuration (another square array) to history.</p>
+    <p>Add the new configuration (another square array) to <a href="global.html#state">history</a>.</p>
 <pre>
 History: Array (5) = $2
  0 {squares: Array}
@@ -234,7 +306,7 @@ React automatically updates the child components inside of it too.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line350">line 350</a>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line372">line 372</a>
     </li></ul></dd>
     
 
@@ -424,7 +496,7 @@ React automatically updates the child components inside of it too.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line270">line 270</a>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line292">line 292</a>
     </li></ul></dd>
     
 
@@ -460,7 +532,7 @@ React automatically updates the child components inside of it too.
 
 
 <div class="description">
-    <p>The Board.</p>
+    <p>The Board component.</p>
 
 <p>Renders the 9 squares of the board.</p>
 
@@ -638,7 +710,7 @@ All of this is possible because of
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line197">line 197</a>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line213">line 213</a>
     </li></ul></dd>
     
 
@@ -705,7 +777,7 @@ buttons per row, each of which with value 'X', 'O' or null.
 
 
 <div class="description">
-    <p>The Game.</p>
+    <p>The Game component.</p>
 
 <p>Renders the grid layout and an ordered list of buttons for each move in the game history.</p>
 
@@ -718,7 +790,7 @@ to a React component that it’s defined in.
 <p>To add a Time Travel, to “go back in time” to the previous moves in the game,
 we need a History of Moves in the <a href="global.html#state">state</a>.</p>
 
-<p>We’ll store the past squares arrays in another array called history.
+<p>We’ll store the past squares arrays in another array called <a href="global.html#state">history</a>.
 The history array represents all board states,
 from the first to the last move.</p>
 </div>
@@ -764,7 +836,7 @@ from the first to the last move.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line269">line 269</a>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line291">line 291</a>
     </li></ul></dd>
     
 
@@ -843,7 +915,7 @@ The Board component receives the arguments (squares, onClick) as a props object.
 
 
 <div class="description">
-    Renders a row of the board.
+    Component to render a row of the board.
 </div>
 
 
@@ -936,7 +1008,7 @@ The Board component receives the arguments (squares, onClick) as a props object.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line222">line 222</a>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line244">line 244</a>
     </li></ul></dd>
     
 
@@ -1112,6 +1184,52 @@ The Board has full control over them.
 
         <tr>
             
+                <td class="name"><code>color</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">square color.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>backg</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">square background color.</td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>onClick</code></td>
             
 
@@ -1176,7 +1294,7 @@ The Board has full control over them.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line167">line 167</a>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line179">line 179</a>
     </li></ul></dd>
     
 
@@ -1245,7 +1363,7 @@ The Board has full control over them.
     
 
     
-    <h4 class="name" id="calculateWinner"><span class="type-signature"></span>calculateWinner<span class="signature">(squares)</span><span class="type-signature"> &rarr; {String}</span></h4>
+    <h4 class="name" id="calculateWinner"><span class="type-signature"></span>calculateWinner<span class="signature">(squares)</span><span class="type-signature"> &rarr; {Object.&lt;winner:String, line:Array.&lt;Number>>}</span></h4>
     
 
     
@@ -1306,7 +1424,7 @@ for a winner and return 'X', 'O', or null as appropriate.
 
             
 
-            <td class="description last">a given array of 9 squares.</td>
+            <td class="description last">a given array with 9 "X" / "O".</td>
         </tr>
 
     
@@ -1347,7 +1465,7 @@ for a winner and return 'X', 'O', or null as appropriate.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line474">line 474</a>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line502">line 502</a>
     </li></ul></dd>
     
 
@@ -1376,7 +1494,8 @@ for a winner and return 'X', 'O', or null as appropriate.
 
         
 <div class="param-desc">
-    <p>the winner: "X", "O", or null if there is not a winner.</p>
+    the winner: "X" or "O", and the configuration: line, column or diagonal, <br>
+or null, if there is no winner.
 </div>
 
 
@@ -1387,7 +1506,7 @@ for a winner and return 'X', 'O', or null as appropriate.
     </dt>
     <dd>
         
-<span class="param-type">String</span>
+<span class="param-type">Object.&lt;winner:String, line:Array.&lt;Number>></span>
 
 
     </dd>
@@ -1415,7 +1534,7 @@ for a winner and return 'X', 'O', or null as appropriate.
 <div class="description">
     <p>The <a href="global.html#Square">Square</a> calls handleClick(i) when clicked.</p>
 
-<p>Each time a player moves, xIsNext (a boolean) will be flipped to determine
+<p>Each time a player moves, <a href="global.html#state">xIsNext</a> (a boolean) will be flipped to determine
 which player goes next, and the game’s state will be saved.</p>
 
 <p>If you “go back in time” and then make a new move from that point,
@@ -1535,7 +1654,7 @@ Detecting changes in immutable objects is considerably easier:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line337">line 337</a>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line359">line 359</a>
     </li></ul></dd>
     
 
@@ -1687,7 +1806,7 @@ to event handlers and server responses.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line393">line 393</a>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line415">line 415</a>
     </li></ul></dd>
     
 
@@ -1738,9 +1857,10 @@ to event handlers and server responses.
 
 
 <div class="description">
-    We'll pass down a prop, from the Board to the Square,
-with a value and function, and we’ll have Square call
-that function when a square is clicked.
+    <p>We'll pass down a prop, from the Board to the Square,
+with a value, color and function, and we'll have Square call
+that function when a square is clicked.</p>
+When there is a winner, the corresponding squares will be highlighted.
 </div>
 
 
@@ -1833,7 +1953,7 @@ that function when a square is clicked.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line206">line 206</a>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line223">line 223</a>
     </li></ul></dd>
     
 
@@ -1901,13 +2021,13 @@ that function when a square is clicked.
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Externals</h3><ul><li><a href="external-react.html">react</a></li><li><a href="external-react-dom.html">react-dom</a></li></ul><h3>Namespaces</h3><ul><li><a href="React.html">React</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Board">Board</a></li><li><a href="global.html#Game">Game</a></li><li><a href="global.html#Row">Row</a></li><li><a href="global.html#Square">Square</a></li><li><a href="global.html#calculateWinner">calculateWinner</a></li><li><a href="global.html#handleClick">handleClick</a></li><li><a href="global.html#jumpTo">jumpTo</a></li><li><a href="global.html#moves">moves</a></li><li><a href="global.html#renderSquare">renderSquare</a></li><li><a href="global.html#setState">setState</a></li><li><a href="global.html#state">state</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Externals</h3><ul><li><a href="external-react.html">react</a></li><li><a href="external-react-dom.html">react-dom</a></li></ul><h3>Namespaces</h3><ul><li><a href="React.html">React</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Board">Board</a></li><li><a href="global.html#Game">Game</a></li><li><a href="global.html#Row">Row</a></li><li><a href="global.html#Square">Square</a></li><li><a href="global.html#cTable">cTable</a></li><li><a href="global.html#calculateWinner">calculateWinner</a></li><li><a href="global.html#handleClick">handleClick</a></li><li><a href="global.html#jumpTo">jumpTo</a></li><li><a href="global.html#moves">moves</a></li><li><a href="global.html#renderSquare">renderSquare</a></li><li><a href="global.html#setState">setState</a></li><li><a href="global.html#state">state</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sun Nov 03 2024 18:48:15 GMT-0300 (Brasilia Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Mon Nov 04 2024 18:22:37 GMT-0300 (Brasilia Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

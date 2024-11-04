@@ -17,3 +17,4 @@ doc-*
 package-lock*
 Icon
 node_modules
+.git

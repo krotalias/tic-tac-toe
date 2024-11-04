@@ -172,6 +172,17 @@ import github from "./github.png";
  */
 
 /**
+ * Color table for winner color and background.
+ * @type {Object&lt;String,String>}
+ */
+const cTable = {
+  winner: "red",
+  backw: "lightgrey",
+  normal: "black",
+  backn: "white",
+};
+
+/**
  * &lt;p>A function component.&lt;/p>
  * &lt;p>In React, {@link https://react.dev/learn/passing-props-to-a-component function components}
  * are simple JavaScript functions that take props as input and return JSX elements.
@@ -183,25 +194,30 @@ import github from "./github.png";
  * {@link https://stackoverflow.com/questions/42522515/what-are-react-controlled-components-and-uncontrolled-components controlled components}.
  * The Board has full control over them.
  *
- * @component
  * @param {Object} props React Props.
  * @param {Number} props.value an index ∈ [0..8].
+ * @param {String} props.color square color.
+ * @param {String} props.backg square background color.
  * @param {handleClick} props.onClick button onClick callback.
  * @returns {React.JSX.Element} a &amp;lt;button&amp;gt; tag with the given props.
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment Destructuring assignment}
  * @see {@link https://michael-karen.medium.com/getting-started-with-modern-javascript-destructuring-assignment-140d0adc37da Getting Started with Modern JavaScript — Destructuring}
  * @see {@link https://javascript.info/destructuring-assignment Destructuring assignment}
  */
-function Square({ value, onClick } = props) {
+function Square({ value, color, backg, onClick } = props) {
   return (
-    &lt;button className="square" onClick={onClick}>
+    &lt;button
+      className="square"
+      style={{ color: color, background: backg }}
+      onClick={onClick}
+    >
       {value}
     &lt;/button>
   );
 }
 
 /**
- * &lt;p>The Board.&lt;/p>
+ * &lt;p>The Board component.&lt;/p>
  *
  * &lt;p>Renders the 9 squares of the board.&lt;/p>
  *
@@ -224,25 +240,31 @@ function Square({ value, onClick } = props) {
  */
 function Board(props) {
   /**
-   * We'll pass down a prop, from the Board to the Square,
-   * with a value and function, and we’ll have Square call
-   * that function when a square is clicked.
+   * &lt;p>We'll pass down a prop, from the Board to the Square,
+   * with a value, color and function, and we'll have Square call
+   * that function when a square is clicked.&lt;/p>
+   * When there is a winner, the corresponding squares will be highlighted.
    * @global
    * @param {Number} i square index ∈ [0..8].
    * @returns {React.JSX.Element} the i-th square with its value and click callback.
    */
   function renderSquare(i) {
+    const winner_square = props.winner &amp;&amp; props.winner.line.includes(i);
+    const color = winner_square ? cTable.winner : cTable.normal;
+    const backg = winner_square ? cTable.backw : cTable.backn;
     return (
       &lt;Square
         key={i}
         value={props.squares[i]}
+        color={color}
+        backg={backg}
         onClick={() => props.onClick(i)}
       />
     );
   }
 
   /**
-   * Renders a row of the board.
+   * Component to render a row of the board.
    * @param {Array&lt;Number>} arr three row indices.
    * @global
    * @returns {React.JSX.Element} &amp;lt;div&amp;gt; tag with three {@link renderSquare squares}.
@@ -267,7 +289,7 @@ function Board(props) {
 }
 
 /**
- * &lt;p>The Game.&lt;/p>
+ * &lt;p>The Game component.&lt;/p>
  *
  * &lt;p>Renders the grid layout and an ordered list of buttons for each move in the game history.&lt;/p>
  *
@@ -280,7 +302,7 @@ function Board(props) {
  * &lt;p>To add a Time Travel, to “go back in time” to the previous moves in the game,
  * we need a History of Moves in the {@link state}.&lt;/p>
  *
- * &lt;p>We’ll store the past squares arrays in another array called {@link Game#state history}.
+ * &lt;p>We’ll store the past squares arrays in another array called {@link state history}.
  * The history array represents all board states,
  * from the first to the last move.&lt;/p>
  *
@@ -328,7 +350,7 @@ function Game() {
   /**
    * &lt;p>The {@link Square} calls handleClick(i) when clicked.&lt;/p>
    *
-   * &lt;p>Each time a player moves, {@link Game#state xIsNext} (a boolean) will be flipped to determine
+   * &lt;p>Each time a player moves, {@link state xIsNext} (a boolean) will be flipped to determine
    * which player goes next, and the game’s state will be saved.&lt;/p>
    *
    * &lt;p>If you “go back in time” and then make a new move from that point,
@@ -376,7 +398,7 @@ function Game() {
     nextSquares[i] = state.xIsNext ? "X" : "O";
 
     /**
-     * &lt;p>Add the new configuration (another square array) to {@link Game#state history}.&lt;/p>
+     * &lt;p>Add the new configuration (another square array) to {@link state history}.&lt;/p>
      * &lt;pre>
      * History: Array (5) = $2
      *  0 {squares: Array}
@@ -452,7 +474,7 @@ function Game() {
 
   let status;
   if (winner) {
-    status = `Winner: ${winner}`;
+    status = `Winner: ${winner.winner}`;
   } else if (state.stepNumber > 8) {
     status = "Game Over: Draw";
   } else {
@@ -470,7 +492,11 @@ function Game() {
         &lt;div>
           &lt;p style={{ textAlign: "center" }}>{status}&lt;/p>
         &lt;/div>
-        &lt;Board squares={current.squares} onClick={(i) => handleClick(i)} />
+        &lt;Board
+          squares={current.squares}
+          winner={winner}
+          onClick={(i) => handleClick(i)}
+        />
       &lt;/div>
       &lt;div className="game-info">
         &lt;p style={{ textAlign: "center" }}>History&lt;/p>
@@ -496,11 +522,16 @@ root.render(&lt;Game />);
  * Given an array of 9 squares, this function will check
  * for a winner and return 'X', 'O', or null as appropriate.
  *
- * @param {Array&lt;String>} squares a given array of 9 squares.
- * @returns {String} &lt;p>the winner: "X", "O", or null if there is not a winner.&lt;/p>
+ * @param {Array&lt;String>} squares a given array with 9 "X" / "O".
+ * @returns {Object&lt;winner:String, line:Array&lt;Number>>}
+ * the winner: "X" or "O", and the configuration: line, column or diagonal, &lt;br>
+ * or null, if there is no winner.
  */
 function calculateWinner(squares) {
-  // The eight winner configurations: rows, columns and diagonals.
+  /**
+   * The eight winner configurations: rows, columns and diagonals.
+   * @type {Array&lt;Array&lt;Number>>}
+   */
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -513,7 +544,7 @@ function calculateWinner(squares) {
   ];
   for (const [a, b, c] of lines) {
     if (squares[a] &amp;&amp; squares[a] === squares[b] &amp;&amp; squares[a] === squares[c]) {
-      return squares[a];
+      return { winner: squares[a], line: [a, b, c] };
     }
   }
   return null;
@@ -528,13 +559,13 @@ function calculateWinner(squares) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Externals</h3><ul><li><a href="external-react.html">react</a></li><li><a href="external-react-dom.html">react-dom</a></li></ul><h3>Namespaces</h3><ul><li><a href="React.html">React</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Board">Board</a></li><li><a href="global.html#Game">Game</a></li><li><a href="global.html#Row">Row</a></li><li><a href="global.html#Square">Square</a></li><li><a href="global.html#calculateWinner">calculateWinner</a></li><li><a href="global.html#handleClick">handleClick</a></li><li><a href="global.html#jumpTo">jumpTo</a></li><li><a href="global.html#moves">moves</a></li><li><a href="global.html#renderSquare">renderSquare</a></li><li><a href="global.html#setState">setState</a></li><li><a href="global.html#state">state</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Externals</h3><ul><li><a href="external-react.html">react</a></li><li><a href="external-react-dom.html">react-dom</a></li></ul><h3>Namespaces</h3><ul><li><a href="React.html">React</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Board">Board</a></li><li><a href="global.html#Game">Game</a></li><li><a href="global.html#Row">Row</a></li><li><a href="global.html#Square">Square</a></li><li><a href="global.html#cTable">cTable</a></li><li><a href="global.html#calculateWinner">calculateWinner</a></li><li><a href="global.html#handleClick">handleClick</a></li><li><a href="global.html#jumpTo">jumpTo</a></li><li><a href="global.html#moves">moves</a></li><li><a href="global.html#renderSquare">renderSquare</a></li><li><a href="global.html#setState">setState</a></li><li><a href="global.html#state">state</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Sun Nov 03 2024 18:48:15 GMT-0300 (Brasilia Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Mon Nov 04 2024 18:22:37 GMT-0300 (Brasilia Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>
