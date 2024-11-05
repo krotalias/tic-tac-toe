@@ -206,11 +206,12 @@ function Square({ value, color, backg, onClick } = props) {
  *
  * @param {Object} props React Props.
  * @param {Array<String>} props.squares the nine squares of the board.
+ * @param {Object<String, Array<Number>>} props.winner winner and configuration.
  * @param {handleClick} props.onClick the click callbak for i-th square.
  * @returns {React.JSX.Element} a &lt;div&gt; tag with a 3 × 3 grid layout, with 3
  * buttons per row, each of which with value 'X', 'O' or null.
  */
-function Board(props) {
+function Board({ squares, winner, onClick } = props) {
   /**
    * <p>We'll pass down a prop, from the Board to the Square,
    * with a value, color and function, and we'll have Square call
@@ -221,16 +222,16 @@ function Board(props) {
    * @returns {React.JSX.Element} the i-th square with its value and click callback.
    */
   function renderSquare(i) {
-    const winner_square = props.winner && props.winner.line.includes(i);
+    const winner_square = winner && winner.line.includes(i);
     const color = winner_square ? cTable.winner : cTable.normal;
     const backg = winner_square ? cTable.backw : cTable.backn;
     return (
       <Square
         key={i}
-        value={props.squares[i]}
+        value={squares[i]}
         color={color}
         backg={backg}
-        onClick={() => props.onClick(i)}
+        onClick={() => onClick(i)}
       />
     );
   }
@@ -351,10 +352,26 @@ function Game() {
    *  then the object has changed.</li>
    * </ul>
    *
+   * <ul>
+   * <li>When you set state in React, a new value must be passed or
+   * React will bail-out and not *re-render your component.
+   * React uses something similar to === to compare the old and new state
+   * to see if they're the same.</li>
+   * </ul>
+   * <ul>
+   * <li>It does shallow equality checks and this is why objects and arrays
+   * cannot simply be mutated to create a state change because a
+   * mutation will not create a new reference for React to notice a change.
+   * React requires immutability because you'll create a whole new copy
+   * of objects and arrays
+   * with your changes in order to satisfy a shallow equality check.</li>
+   * </ul>
+   *
    * @global
    * @param {Number} i an index ∈ [0..8] corresponding to the button clicked.
    * @see {@link https://reactjs.org/docs/react-component.html#setstate setState()}
    * @see {@link https://www.codecademy.com/resources/docs/javascript/arrays/slice .slice()}
+   * @see {@link https://reacttraining.com/blog/state-in-react-is-immutable State in React is Immutable}
    */
   function handleClick(i) {
     // a copy of the current history up to stepNumber.
