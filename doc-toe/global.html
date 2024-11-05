@@ -229,7 +229,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line452">line 452</a>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line453">line 453</a>
     </li></ul></dd>
     
 
@@ -306,7 +306,7 @@ React automatically updates the child components inside of it too.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line387">line 387</a>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line388">line 388</a>
     </li></ul></dd>
     
 
@@ -496,7 +496,7 @@ React automatically updates the child components inside of it too.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line291">line 291</a>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line292">line 292</a>
     </li></ul></dd>
     
 
@@ -539,7 +539,7 @@ React automatically updates the child components inside of it too.
 <p>Basically, it renders the layout of the game,
 by creating a 3 × 3 grid with a button for each square.</p>
 
-<p>Board takes squares via props and has its own onClick prop specified by Game.</p>
+<p>Board takes squares via props and has its own onClick prop specified by <a href="global.html#Game">Game</a>.</p>
 When you want to aggregate data from multiple children or to have two child components communicate with each other,
 move the state upwards so that it lives in the parent component.
 The parent can then pass the state back down to the children via props,
@@ -764,6 +764,144 @@ All of this is possible because of
 <div class="param-desc">
     a &lt;div&gt; tag with a 3 × 3 grid layout, with 3
 buttons per row, each of which with value 'X', 'O' or null.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">React.JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="Game"><span class="type-signature"></span>Game<span class="signature">()</span><span class="type-signature"> &rarr; {React.JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>The Game component.</p>
+
+<p>Renders the grid layout and an ordered list of buttons for each move in the game history.</p>
+
+To “remember” things, components maintain a <a href="https://react.dev/learn/managing-state">state</a>.
+The <strong>state</strong> is a built-in React object that is
+used to contain data or information about the component,
+which should be considered as private
+to a React component that it’s defined in.
+
+<p>To add a Time Travel, to “go back in time” to the previous moves in the game,
+we need a History of Moves in the <a href="global.html#state">state</a>.</p>
+
+<p>We’ll store the past squares arrays in another array called <a href="global.html#state">history</a>.
+The history array represents all board states,
+from the first to the last move.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line262">line 262</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://www.w3schools.com/react/react_props.asp">React Props</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    a tag &lt;game&gt;, with the 3 × 3 <a href="global.html#Board">Board</a> grid layout and
+an ordered list of buttons for the time travel.
+
+<p>This is really beautiful.
+<a href="global.html#Board">Board</a> is going to draw the configuration indicated by stepNumber,
+used to get the current entry into the history array.
+The Board component receives the arguments (squares, onClick) as a props object.</p>
 </div>
 
 
@@ -1350,7 +1488,7 @@ for a winner and return 'X', 'O', or null as appropriate.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line505">line 505</a>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line506">line 506</a>
     </li></ul></dd>
     
 
@@ -1554,7 +1692,7 @@ with your changes in order to satisfy a shallow equality check.</li>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line374">line 374</a>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line375">line 375</a>
     </li></ul></dd>
     
 
@@ -1708,7 +1846,7 @@ to event handlers and server responses.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line430">line 430</a>
+        <a href="tic-tac-toe.jsx.html">tic-tac-toe.jsx</a>, <a href="tic-tac-toe.jsx.html#line431">line 431</a>
     </li></ul></dd>
     
 
@@ -1923,13 +2061,13 @@ When there is a winner, the corresponding squares will be highlighted.
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Externals</h3><ul><li><a href="external-react.html">react</a></li><li><a href="external-react-dom.html">react-dom</a></li></ul><h3>Namespaces</h3><ul><li><a href="React.html">React</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Board">Board</a></li><li><a href="global.html#Row">Row</a></li><li><a href="global.html#Square">Square</a></li><li><a href="global.html#cTable">cTable</a></li><li><a href="global.html#calculateWinner">calculateWinner</a></li><li><a href="global.html#handleClick">handleClick</a></li><li><a href="global.html#jumpTo">jumpTo</a></li><li><a href="global.html#moves">moves</a></li><li><a href="global.html#renderSquare">renderSquare</a></li><li><a href="global.html#setState">setState</a></li><li><a href="global.html#state">state</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Externals</h3><ul><li><a href="external-react.html">react</a></li><li><a href="external-react-dom.html">react-dom</a></li></ul><h3>Namespaces</h3><ul><li><a href="React.html">React</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Board">Board</a></li><li><a href="global.html#Game">Game</a></li><li><a href="global.html#Row">Row</a></li><li><a href="global.html#Square">Square</a></li><li><a href="global.html#cTable">cTable</a></li><li><a href="global.html#calculateWinner">calculateWinner</a></li><li><a href="global.html#handleClick">handleClick</a></li><li><a href="global.html#jumpTo">jumpTo</a></li><li><a href="global.html#moves">moves</a></li><li><a href="global.html#renderSquare">renderSquare</a></li><li><a href="global.html#setState">setState</a></li><li><a href="global.html#state">state</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Tue Nov 05 2024 05:46:39 GMT-0300 (Brasilia Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Tue Nov 05 2024 05:55:50 GMT-0300 (Brasilia Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -284,6 +284,7 @@ function Board({ squares, winner, onClick } = props) {
  * {@link Board} is going to draw the configuration indicated by stepNumber,
  * used to get the current entry into the history array.
  * The Board component receives the arguments (squares, onClick) as a props object.</p>
+ * @function Game
  *
  * @see {@link https://www.w3schools.com/react/react_props.asp React Props}
  */
