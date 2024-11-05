@@ -15,7 +15,7 @@
  * <p>This project was bootstrapped with
  * {@link https://vite.dev Vite}:</p>
  * <ul>
- *    <li>yarn init vite</li>
+ *    <li>yarn create vite</li>
  * </ul>
  *
  * <p><b>Important remark</b>: using React without {@link https://nodejs.dev/en/ nodejs}
@@ -94,9 +94,7 @@
  */
 
 import React, { useState } from "react";
-import { createRoot } from "react-dom/client";
 import props from "prop-types";
-import "./tic-tac-toe.css";
 import github from "./github.png";
 
 /**
@@ -266,7 +264,7 @@ function Board({ squares, winner, onClick } = props) {
  *
  * <p>Renders the grid layout and an ordered list of buttons for each move in the game history.</p>
  *
- * To “remember” things, components create a {@link https://react.dev/learn/managing-state state}.
+ * To “remember” things, components maintain a {@link https://react.dev/learn/managing-state state}.
  * The <strong>state</strong> is a built-in React object that is
  * used to contain data or information about the component,
  * which should be considered as private
@@ -289,7 +287,7 @@ function Board({ squares, winner, onClick } = props) {
  *
  * @see {@link https://www.w3schools.com/react/react_props.asp React Props}
  */
-function Game() {
+export default function Game() {
   /**
    * The state of the game.
    * <ul>
@@ -494,18 +492,6 @@ function Game() {
     </div>
   );
 }
-
-// ========================================
-
-/**
- * Create a root to display React components inside a browser DOM node.
- * After you’ve created a root, you need to call root.render to display a React component inside of it.
- * @method createRoot
- * @memberof external:react-dom
- * @see {@link https://react.dev/reference/react-dom/client/createRoot createRoot}
- */
-const root = createRoot(document.getElementById("tic-tac-toe"));
-root.render(<Game />);
 
 /**
  * Given an array of 9 squares, this function will check
