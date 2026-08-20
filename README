@@ -1,3 +1,13 @@
 yarn create vite tic-tac-toe --template react
 
 npm run dev -> http://localhost:5173/tic-tac-toe/
+
+
+
+to upgrade all packages:
+
+Install globally npm-check-updates
+
+Run npm-check-updates
+
+Run ncu -u to upgrade package.json
